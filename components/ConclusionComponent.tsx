@@ -22,7 +22,6 @@ const ConclusionComponent = () => {
     });
     const data = await response.json();
     setResult(data.result);
-    console.log(data.result);
   }
 
   return (

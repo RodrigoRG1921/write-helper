@@ -6,9 +6,8 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 /* eslint import/no-anonymous-default-export: [2, {"allowAnonymousFunction": true}] */
 export default async function (req: any, res: any) {
-  console.log(req);
   const completion = await openai.createCompletion({
-    model: 'text-davinci-002',
+    model: 'text-curie-001',
     max_tokens: 400,
     prompt: generatePrompt(
       req.body.subject,
