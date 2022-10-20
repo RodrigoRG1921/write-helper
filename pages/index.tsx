@@ -3,23 +3,14 @@ import Head from 'next/head';
 import { MouseEvent, useState } from 'react';
 import Conclusion from './api/spanish/conclusion';
 import ConclusionComponent from '../components/ConclusionComponent';
+import SelectWrittingComponent from '../components/SelectWrittingComponent';
 
 const Home: NextPage = () => {
-  const [animalInput, setAnimalInput] = useState('');
-  const [result, setResult] = useState();
-  async function onSubmit(event: any) {
-    event.preventDefault();
-    const response = await fetch('/api/prompt', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ animal: animalInput }),
-    });
-    const data = await response.json();
-    setResult(data.result);
-    setAnimalInput('');
-  }
+  const [selectedComponent, setSelectedComponent] = useState('index');
+  const onSubmit = () => {};
+  const onSelectChange = (event: any) => {
+    setSelectedComponent(event.target.value);
+  };
   return (
     <div className='h-screen m-10'>
       <Head>
@@ -31,15 +22,28 @@ const Home: NextPage = () => {
         <h1 className='text-6xl mb-5'>GPT3</h1>
         <div className='flex w-full h-full'>
           <div className='flex flex-col flex-start border-r-stone-90 flex-1 border-r-black border-r'>
-            <ConclusionComponent />
+            {/* <ConclusionComponent /> */}
+            {
+              {
+                index: (
+                  <SelectWrittingComponent onSelectChange={onSelectChange} />
+                ),
+                'Conclusión practica': (
+                  <ConclusionComponent
+                    onBackClick={() => setSelectedComponent('index')}
+                  />
+                ),
+                bar: <div> </div>,
+              }[selectedComponent]
+            }
           </div>
 
           <div className='flex flex-col flex-1'>
             <textarea
               name='text'
               className=' h-full focus:outline-none'
-              value={animalInput}
-              onChange={(e) => setAnimalInput(e.target.value)}
+              value={'a'}
+              onChange={(e) => console.log('')}
             ></textarea>
           </div>
         </div>
