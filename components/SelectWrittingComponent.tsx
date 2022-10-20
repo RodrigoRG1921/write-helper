@@ -1,37 +1,36 @@
-import React from 'react'
+import React from 'react';
 
-const SelectWrittingComponent = () => {
-  return (
-    <div>
-      <div className='w-full flex flex-col'>
-              <h2>Select the type of writting you want to generate</h2>
-              <select
-                id='countries_disabled'
-                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-              >
-                <option selected>Choose a country</option>
-                <option value='US'>United States</option>
-                <option value='CA'>Canada</option>
-                <option value='FR'>France</option>
-                <option value='DE'>Germany</option>
-              </select>
-              <h2 className='mt-5'>Let´s generate an Essay introduction</h2>
-            </div>
-            <textarea
-              name='text'
-              className='w-3/4 h-48 border border-stone-900 resize-none '
-              value={animalInput}
-              onChange={(e) => setAnimalInput(e.target.value)}
-            ></textarea>
-            <button
-              className='border bg-green-600 w-48 h-10 rounded border-stone-900 mt-3 self-center'
-              onClick={(event) => onSubmit(event)}
-            >
-              Submit
-            </button>
-          </div>
-    </div>
-  )
+interface Props {
+  onSelectChange: (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => React.ChangeEvent<HTMLSelectElement>;
 }
 
-export default SelectWrittingComponent
+const SelectWrittingComponent = ({ onSelectChange }: Props) => {
+  return (
+    <div className='w-full flex flex-col items-center'>
+      <div className=''>
+        <div className='mb-5'>
+          <h2>Select the type of writting you want to generate</h2>
+        </div>
+        <select
+          id='countries_disabled'
+          onChange={(event) => onSelectChange(event)}
+          className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+        >
+          <option>Conclusión practica</option>
+          <option selected>Conclusión ensayo</option>
+        </select>
+
+        <button
+          type='submit'
+          className='mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 '
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default SelectWrittingComponent;
