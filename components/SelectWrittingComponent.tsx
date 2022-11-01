@@ -1,17 +1,17 @@
 import React from 'react';
 
 interface Props {
-  onSelectChange: (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => React.ChangeEvent<HTMLSelectElement>;
+  onSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const SelectWrittingComponent = ({ onSelectChange }: Props) => {
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className='w-full flex flex-col flex-start mx-10'>
       <div className=''>
         <div className='mb-5'>
-          <h2>Select the type of writting you want to generate</h2>
+          <h2 className='text-xl'>
+            Select the type of writting you want to generate
+          </h2>
         </div>
         <select
           id='countries_disabled'
@@ -20,6 +20,7 @@ const SelectWrittingComponent = ({ onSelectChange }: Props) => {
         >
           <option>Conclusión practica</option>
           <option selected>Conclusión ensayo</option>
+          <option>Introducción ensayo</option>
         </select>
 
         <button

@@ -36,8 +36,8 @@ const ConclusionComponent = ({ onBackClick }: Props) => {
   }
 
   return (
-    <div className='flex flex-1 flex-col items-center'>
-      <div className='flex items-center'>
+    <div className='flex flex-1 flex-col mx-10'>
+      <div className='flex'>
         <button
           onClick={onBackClick}
           className='mt-2 mr-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 '
@@ -46,9 +46,9 @@ const ConclusionComponent = ({ onBackClick }: Props) => {
         </button>
         <h2 className='text-3xl'>Genera una conclusión para una práctica</h2>
       </div>
-      <div className='w-1/2'>
-        <form className='w-full' onSubmit={onSubmit}>
-          <div className='w-full'>
+      <div className=''>
+        <form onSubmit={onSubmit}>
+          <div>
             <div>
               <label className='block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
                 Tema
@@ -99,11 +99,11 @@ const ConclusionComponent = ({ onBackClick }: Props) => {
         </form>
       </div>
 
-      <div className='w-full h-full mt-10 flex items-center flex-col '>
+      <div className='flex flex-col '>
         {isLoading && <p>Loading...</p>}
         <h3 className='text-xl'>Resultado: </h3>
         <textarea
-          className='w-1/2 resize-none focus:outline-none h-48'
+          className='w-full resize-none focus:outline-none h-40'
           value={result}
         />
       </div>
