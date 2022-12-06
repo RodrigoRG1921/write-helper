@@ -21,6 +21,7 @@ const SelectWrittingComponent = ({ onSelectChange }: Props) => {
           <option>Conclusión practica</option>
           <option selected>Conclusión ensayo</option>
           <option>Introducción ensayo</option>
+          <option>Playground</option>
         </select>
 
         <button
