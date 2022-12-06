@@ -20,7 +20,6 @@ export default async function (req: any, res: any) {
 }
 
 function generatePrompt(subject: string, objective: string, steps: string) {
-  console.log(subject);
   return `Crea una conclusión de una práctica del siguiente tema.
 
 tema: Flex Sim
